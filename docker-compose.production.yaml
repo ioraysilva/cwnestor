@@ -40,6 +40,8 @@ services:
     environment:
       - POSTGRES_DB=chatwoot # OU chatwoot, SEJA CONSISTENTE
       - POSTGRES_USER=postgres
+    volumes:
+      - /data/storage:/app/storage
 
 
   redis:
