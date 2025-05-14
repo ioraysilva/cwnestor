@@ -44,13 +44,13 @@ services:
     environment:
       - POSTGRES_DB=chatwoot
       - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=
       # POSTGRES_PASSWORD será injetada pelo Coolify
 
   redis:
     image: redis:alpine
     restart: always
     command: ["sh", "-c", "redis-server --requirepass \"$REDIS_PASSWORD\""] # $REDIS_PASSWORD virá do ambiente injetado pelo Coolify
-    # env_file: .env # CONSIDERE REMOVER
     volumes:
       - /data/redis:/data
     ports:
