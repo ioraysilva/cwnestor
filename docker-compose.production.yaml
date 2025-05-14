@@ -34,17 +34,12 @@ services:
     command: ['bundle', 'exec', 'sidekiq', '-C', 'config/sidekiq.yml']
     restart: always
 
-  postgres:
-    image: postgres:12
-    restart: always
-    ports:
-      - '127.0.0.1:5432:5432'
-    volumes:
-      - /data/postgres:/var/lib/postgresql/data
+   postgres:
+    image: pgvector/pgvector:pg12
+    # ... resto da configuração ...
     environment:
-      - POSTGRES_DB=chatwoot
+      - POSTGRES_DB=chatwoot # OU chatwoot, SEJA CONSISTENTE
       - POSTGRES_USER=postgres
-      # Please provide your own password.
 
 
   redis:
